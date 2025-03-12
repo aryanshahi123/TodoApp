@@ -29,12 +29,24 @@ function addTodo() {
     } else {
         let todoText = todoTextBox.value;
         let todos = JSON.parse(localStorage.getItem("todos")) || [];
+        let flag = 0;
+        todos.forEach(todo => {
+            if(todoText===todo.todoTask){
+                flag = 1;
+            }
+        });
 
-        let newTodo = { todoTask: todoText, checked: false };
-        todos.push(newTodo);
-
-        localStorage.setItem("todos", JSON.stringify(todos));
-        createTodoElement(todoText, false);
+        if(!flag){
+            let newTodo = { todoTask: todoText, checked: false };
+            todos.push(newTodo);
+    
+            localStorage.setItem("todos", JSON.stringify(todos));
+            createTodoElement(todoText, false);}
+            else{
+                alert(`${todoText} already exists.`);
+            }
+        
+        
     }
     todoTextBox.value = '';
 }
