@@ -16,7 +16,7 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 46px;
+  font-size: 50px;
   color: black;
   padding: 20px 0;
 }
@@ -62,7 +62,7 @@ h1 {
   cursor: pointer;
   font-weight: bold;
   color: white;
-  transition: all 0.2s sine;
+  transition: 200ms ease;
 }
 
 .todo-bar .add-btn:hover {
@@ -70,33 +70,42 @@ h1 {
 }
 ul {
   margin: 20px 0;
-  border: 2px solid rgba(30, 30, 30, 0.5);
 }
 ul li {
-  list-style-type: none;
-  font-size: 17px;
-  margin: 7px 18px 10px;
-  padding: 10px 25px;
   position: relative;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  padding: 10px 0;
+  border-bottom: 2px solid gray;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 ul li::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  border: 2px solid black;
-  position: absolute;
-  top: 10px;
-  left: -10px;
+  content: "\2713";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
+  background-color: gray;
+  color: white;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 5px;
+  transition: background 0.3s, color 0.3s;
 }
 
-ul li.chosen {
+ul li.chosen p {
   text-decoration: line-through;
+  color: #aaa;
 }
+
 ul li.chosen::before {
   background-color: lime;
+  color: black;
 }
 
 ul li span {
@@ -105,6 +114,7 @@ ul li span {
   top: 6px;
   border-radius: 50%;
   padding: 5px 10px;
+  transition: 200ms ease;
 }
 
 ul li span:hover {
